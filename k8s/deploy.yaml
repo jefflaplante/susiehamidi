@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: susiehamidi 
+  labels:
+    app: susiehamidi 
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: susiehamidi 
+        tier: nginx
+    spec:
+      containers:
+      - image: jefflaplante/susiehamidi.com 
+        name: susiehamidi 
+        ports:
+        - containerPort: 80 
+          name: susiehamidi 

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: susiehamidi 
+  labels:
+    app: susiehamidi
+spec:
+  sessionAffinity: ClientIP
+  ports:
+    - port: 80
+      nodePort: 30511
+      targetPort: 80
+  type: NodePort
+  selector:
+    app: susiehamidi
+    tier: nginx

@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+  labels:
+    app: susiehamidi
+  name: susie
+  namespace: susie
+spec:
+  rules:
+  - host: susiehamidi.com
+    http:
+     paths:
+     - backend:
+         serviceName: susie-susiehamidi
+         servicePort: nginx
+  - host: www.susiehamidi.com
+    http:
+     paths:
+     - backend:
+         serviceName: susie-susiehamidi
+         servicePort: nginx
+status:
+  loadBalancer: {}
